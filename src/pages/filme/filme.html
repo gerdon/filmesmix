@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Filme
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content">
+  <ion-list>
+    <ion-list-header>Cadastro de filme</ion-list-header>
+    <form (ngSubmit)="filmeForm()">
+      <ion-item>
+        <ion-label>Imagem</ion-label>
+        <ion-input class="mt-5" type="file" name="imagem"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-input class="mt-5" type="text" name="nome"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Categoria</ion-label>
+        <ion-input class="mt-5" type="text" name="categoria"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Duração</ion-label>
+        <ion-input class="mt-5" type="text" name="duracao"></ion-input>
+      </ion-item>
+
+      <button ion-button class="btn btn-primary" type="submit" block>Novo Filme</button>
+    </form>
+  </ion-list>
+</ion-content>
