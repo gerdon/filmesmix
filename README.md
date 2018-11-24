@@ -1,7 +1,20 @@
-# filmesmix
+# FILMESMIX
   App de filmes
 
-## Configurar o ambiente
+## Configurar ambiente
+    Abaixo é segue os passos em ordem para configurar o ambiente.
 
+## DEPENDÊNCIAS
+### Instalar as dependências do projeto clonado (All)
 
-## Instalar
+```
+npm install
+```
+ou
+```
+npm i
+```
+
+### Instalar
+
+npm install --save @types/node

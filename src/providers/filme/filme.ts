@@ -8,7 +8,9 @@ import { Filme } from "./../../models/filme.model";
 export class FilmeProvider {
   private api_url = "http://127.0.0.1:3000/";
 
-  constructor(public http: HttpClient) {}
+  constructor(
+    public http: HttpClient
+    ) {}
 
   createFilme(filme) {
     return new Promise((resolve, reject) => {
