@@ -1,17 +1,38 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import "rxjs/add/operator/map";
 
-/*
-  Generated class for the FilmeProvider provider.
+import { Filme } from "./../../models/filme.model";
 
-  See https://angular.io/guide/dependency-injection for more info on providers
-  and Angular DI.
-*/
 @Injectable()
 export class FilmeProvider {
+  private api_url = "http://127.0.0.1:3000/";
 
-  constructor(public http: HttpClient) {
-    console.log('Hello FilmeProvider Provider');
+  constructor(public http: HttpClient) {}
+
+  createFilme(filme) {
+    return new Promise((resolve, reject) => {
+      this.http.post(this.api_url + "filmes/", filme).subscribe(
+        (result: any) => {
+          resolve(result);
+        },
+        error => {
+          reject(error);
+        }
+      );
+    });
   }
 
+  getAll() {
+    return new Promise((resolve, reject) => {
+      this.http.get(this.api_url + "filmes/").subscribe(
+        (result: any) => {
+          resolve(result);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
 }
