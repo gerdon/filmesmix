@@ -31,7 +31,8 @@ export class FilmePage {
   createFilme() {
     let loading = this.showLoading();
 
-    this.filme.imagem = this.fileImage;
+    console.log(this.filme.imagem);
+    // this.filme.imagem = this.fileImage;
 
     this.filmeProvider
       .createFilme(this.filme)
