@@ -1,7 +1,7 @@
-import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
+import { NgModule, ErrorHandler } from '@angular/core';
 import { MyApp } from './app.component';
 
 import { AboutPage } from '../pages/about/about';
@@ -11,8 +11,9 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { FilmeProvider } from '../providers/filme/filme';
 
-import { StatusBar } from '@ionic-native/status-bar';
+import { ImagePicker } from '@ionic-native/image-picker';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StatusBar } from '@ionic-native/status-bar';
 
 @NgModule({
   declarations: [
@@ -37,8 +38,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   providers: [
     FilmeProvider,
-    StatusBar,
+    ImagePicker,
     SplashScreen,
+    StatusBar,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

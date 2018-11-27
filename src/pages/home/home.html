@@ -10,8 +10,9 @@
   </ion-list-header>
 
   <ion-list *ngFor="let f of filmes">
+    <!-- <ion-card class="cardMovie"> -->
     <ion-card>
-      <!-- Imagem aqui -->
+      <img src="{{ f.imagem }}" style="width: 100%; height: 100%;"/>
       <ion-card-content>
         <ion-card-title>
           {{ f.nome }}

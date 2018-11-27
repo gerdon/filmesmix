@@ -1,11 +1,9 @@
 import { Component } from "@angular/core";
 import { NavController, ToastController, LoadingController, Loading } from "ionic-angular";
 
-import { Filme } from "./../../models/filme.model";
-
 import { FilmeProvider } from "./../../providers/filme/filme";
 
-// declare const Buffer;
+import { ImagePicker } from '@ionic-native/image-picker';
 
 @Component({
   selector: "page-filme",
@@ -19,20 +17,20 @@ export class FilmePage {
     duracao: ""
   };
 
-  private fileImage: File;
+  private imagem: any = '../../assets/imgs/back.jpg'
 
   constructor(
-    public navCtrl: NavController,
     public filmeProvider: FilmeProvider,
+    private imagePicker: ImagePicker,
     public loadingCtrl: LoadingController,
+    public navCtrl: NavController,
     private toast: ToastController
   ) {}
 
   createFilme() {
     let loading = this.showLoading();
 
-    console.log(this.filme.imagem);
-    // this.filme.imagem = this.fileImage;
+    this.filme.imagem = this.imagem;
 
     this.filmeProvider
       .createFilme(this.filme)
@@ -60,9 +58,21 @@ export class FilmePage {
       });
   }
 
-  onImage(event) {
-    console.log(event.target.files);
-    this.fileImage = event.target.files[0];
+  /**
+   * Obtendo e convertendo imagem em Base64 para armazenar no banco
+   */
+  getImagem() {
+    let options = {
+      maximumImagesCount: 1,
+      outputType: 1 //Retorna o arquivo em Base64
+    };
+
+    //Transforma a imagem em Base64
+    this.imagePicker.getPictures(options).then((results) => {
+      for (var i = 0; i < results.length; i++) {
+          this.imagem = 'data:image/jpeg;base64,' + results[i];
+      }
+    }, (err) => { });
   }
 
   /**
@@ -78,12 +88,4 @@ export class FilmePage {
     return loading;
   }
 
-  // base64_decode(base64str): any {
-  //   var bitmap: any;
-  //   return bitmap = new Buffer(base64str, "base64");
-  // }
-
-  // base64_encode(bitmap) {
-  //   return new Buffer(bitmap).toString("base64");
-  // }
 }

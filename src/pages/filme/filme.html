@@ -11,9 +11,10 @@
     </ion-list-header>
       <ion-item>
         <ion-label>Imagem</ion-label>
-        <!-- <ion-input type="file" name="imagem" (change)="onImage($event)"></ion-input> -->
-        <!-- <ion-input type="file" name="imagem" (change)="onImage($event)"></ion-input> -->
-        <ion-input type="file" name="imagem" [(ngModel)]="filme.imagem"></ion-input>
+        <ion-avatar item-end>
+          <img src="{{ imagem }}" (click)="getImagem()">
+        </ion-avatar>
+        <!-- <ion-input type="file" name="imagem" (change)="getImagem()"></ion-input> -->
       </ion-item>
 
       <ion-item>
